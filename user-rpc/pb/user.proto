@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option go_package = "./pb";
+
+message User {
+    int64 id = 1;
+    string mobile = 2;
+    string nickname = 3;
+    int64 sex = 4;
+    string avatar = 5;
+    string info = 6;
+}
+
+message LoginReq {
+    string password = 1;
+    string nickname = 2;
+}
+
+message LoginResp {
+    int32 code = 1;
+    string msg = 2;
+}
+
+service usercenter {
+    rpc login(LoginReq) returns (LoginResp);
+}
